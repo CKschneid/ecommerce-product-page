@@ -97,14 +97,13 @@ const ModalHeader = styled.h5`
   line-height: 20px;
 `;
 
-const Link = style.li`
-font-family: ${({ theme }) => theme.typography.fontFamily};
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 26px;
-color: ${({ theme }) => theme.colors.darkGrayishBlue};
-
+const Link = styled.li`
+  font-family: ${({ theme }) => theme.typography.fontFamily};
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: ${({ theme }) => theme.colors.darkGrayishBlue};
 `;
 export {
   HeadingOne,
@@ -116,4 +115,5 @@ export {
   QuantityText,
   ButtonText,
   ModalHeader,
+  Link,
 };
