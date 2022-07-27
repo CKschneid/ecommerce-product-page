@@ -40,6 +40,7 @@ const Cart = styled.div`
   height: 26px;
   margin: 0px 4vw;
   position: relative;
+  cursor: pointer;
 `;
 
 const LiveCart = styled.div`

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useReducer } from "react";
 import Nav from "./components/Nav";
 import ProductPage from "./components/ProductPage";
+import CartModal from "./components/CartModal";
 
 const sampleCart = [
   {
@@ -12,7 +13,7 @@ const sampleCart = [
     quantity: 3,
   },
 ];
-const ACTIONS = {
+export const ACTIONS = {
   ADD_ITEM: "add-item",
   DELETE_ITEM: "delete-item",
 };
@@ -33,11 +34,21 @@ const reducer = (state, action) => {
 };
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
+  const [cartIsVisible, setCartVisibility] = useState(false);
   return (
     <>
-      <Nav dispatch={dispatch} cart={state.cart} />
+      <Nav
+        dispatch={dispatch}
+        cart={state.cart}
+        cartIsVisible={cartIsVisible}
+        setCartVisibility={setCartVisibility}
+      />
       <ProductPage dispatch={dispatch} />
+      <CartModal
+        visible={cartIsVisible}
+        cart={state.cart}
+        dispatch={dispatch}
+      />
     </>
   );
 }

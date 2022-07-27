@@ -113,6 +113,15 @@ const LiveCartText = styled.div`
   color: #ffffff;
 `;
 
+const CartHeaderText = styled.h3`
+  font-family: ${({ theme }) => theme.typography.fontFamily};
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: ${({ theme }) => theme.colors.veryDarkBlue};
+`;
+
 export {
   HeadingOne,
   HeadingTwo,
@@ -125,4 +134,5 @@ export {
   ModalHeader,
   LinkText,
   LiveCartText,
+  CartHeaderText,
 };

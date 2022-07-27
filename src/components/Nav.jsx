@@ -36,7 +36,7 @@ const linkList = ["Collections", "Men", "Women", "About", "Contact"];
 //     return null;
 //   }
 // };
-const Nav = ({ cart, dispatch }) => {
+const Nav = ({ cart, dispatch, cartIsVisible, setCartVisibility }) => {
   const [navIsVisible, setNavVisibility] = useState(false);
   const [totalItems, setTotalItems] = useState(
     cart.reduce((prevValue, currentValue) => {
@@ -44,7 +44,6 @@ const Nav = ({ cart, dispatch }) => {
     }, 0)
   );
 
-  console.log(totalItems);
   const handleClick = () => {
     setNavVisibility(!navIsVisible);
   };
@@ -64,7 +63,7 @@ const Nav = ({ cart, dispatch }) => {
           ))}
         </Links>
         <CartandUser>
-          <Cart>
+          <Cart onClick={() => setCartVisibility(!cartIsVisible)}>
             <CartIcon src={cartSvg} />
             <LiveCart totalItems={totalItems}>
               <LiveCartText>{totalItems}</LiveCartText>
