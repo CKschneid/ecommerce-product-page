@@ -28,6 +28,7 @@ const Lightbox = () => {
       <ThumbnailRow>
         {productImagesArray.map((image) => (
           <Thumbnail
+            key={image.key}
             image={image}
             featured={featured.key == image.key ? true : false}
             handleClick={handleClick}

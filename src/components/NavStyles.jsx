@@ -1,16 +1,17 @@
 import styled from "styled-components";
+import { LinkText, LiveCartText } from "./Typography";
 const StyledNav = styled.div`
   max-width: 1100px;
-  margin: 28px auto 90px;
+  margin: 0px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-const Logo = styled.img`
+const Logo = styled.div`
   width: 137.5px;
   height: 20px;
   margin-right: 5vw;
-  padding-left: 3vw;
+  // padding-left: 3vw;
 `;
 const Links = styled.ul`
   flex-grow: 1;
@@ -22,18 +23,47 @@ const Links = styled.ul`
     display: none;
   }
 `;
+const Link = styled(LinkText)`
+  cursor: pointer;
+  padding: 25px 0px;
+  border-bottom: 4px solid hsla(26, 100%, 55%, 0);
+  &:hover {
+    border-bottom: 4px solid ${({ theme }) => theme.colors.orange};
+  }
+`;
 const CartandUser = styled.div`
   display: flex;
   align-items: center;
 `;
-const Cart = styled.img`
+const Cart = styled.div`
+  width: 28px;
+  height: 26px;
+  margin: 0px 4vw;
+  position: relative;
+`;
+
+const LiveCart = styled.div`
+  position: absolute;
+  top: -10px;
+  right: 0;
+  border-radius: 6.5px;
+  padding: 3px 6px;
+  background-color: ${({ theme }) => theme.colors.orange};
+  display: ${({ totalItems }) => (totalItems > 0 ? "block" : "none")};
+`;
+const CartIcon = styled.img`
   width: 21.82px;
   height: 20px;
-  margin: 0px 4vw;
 `;
+
 const Avatar = styled.img`
+  border-radius: 50%;
   width: 50px;
   height: 50px;
+  border: 2px solid hsla(26, 100%, 55%, 0);
+  &:hover {
+    border: 2px solid ${({ theme }) => theme.colors.orange};
+  }
 `;
 
 const Toggle = styled.img`
@@ -47,7 +77,11 @@ const Toggle = styled.img`
     display: block;
   }
 `;
-const Divider = styled.hr``;
+const Divider = styled.hr`
+  border-top: 1px solid hsla(219, 35%, 92%, 1);
+  max-width: 1100px;
+  margin: 0px auto;
+`;
 
 const Overlay = styled.div`
   display: none;
@@ -72,11 +106,15 @@ export {
   StyledNav,
   Logo,
   Links,
+  Link,
   CartandUser,
   Cart,
+  CartIcon,
+  LiveCart,
   Avatar,
   Toggle,
   Divider,
   Overlay,
   MobileNav,
+  LiveCartText,
 };

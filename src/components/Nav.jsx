@@ -9,21 +9,42 @@ import {
   StyledNav,
   Logo,
   Links,
+  Link,
   CartandUser,
   Cart,
+  CartIcon,
+  LiveCart,
+  LiveCartText,
   Avatar,
   Toggle,
   Divider,
   Overlay,
   MobileNav,
 } from "./NavStyles";
-import { Link } from "./Typography";
+
 import { useState } from "react";
 
 const linkList = ["Collections", "Men", "Women", "About", "Contact"];
+// const displayTotalItems = (cart) => {
+//   const totalItems = cart.reduce((prevValue, currentValue) => {
+//     prevValue.quantity + currentValue.quantity;
+//   }, 0);
 
-const Nav = () => {
+//   if (totalItems > 0) {
+//     return totalItems;
+//   } else {
+//     return null;
+//   }
+// };
+const Nav = ({ cart, dispatch }) => {
   const [navIsVisible, setNavVisibility] = useState(false);
+  const [totalItems, setTotalItems] = useState(
+    cart.reduce((prevValue, currentValue) => {
+      return (prevValue.quantity || 0) + currentValue.quantity;
+    }, 0)
+  );
+
+  console.log(totalItems);
   const handleClick = () => {
     setNavVisibility(!navIsVisible);
   };
@@ -34,14 +55,21 @@ const Nav = () => {
         onClick={handleClick}
       />
       <StyledNav>
-        <Logo src={logoSvg} />
+        <Logo>
+          <img src={logoSvg} />
+        </Logo>
         <Links>
           {linkList.map((link) => (
             <Link key={link}>{link}</Link>
           ))}
         </Links>
         <CartandUser>
-          <Cart src={cartSvg} />
+          <Cart>
+            <CartIcon src={cartSvg} />
+            <LiveCart totalItems={totalItems}>
+              <LiveCartText>{totalItems}</LiveCartText>
+            </LiveCart>
+          </Cart>
           <Avatar src={avatarImg} />
         </CartandUser>
       </StyledNav>
@@ -52,6 +80,7 @@ const Nav = () => {
           ))}
         </MobileNav>
       </Overlay>
+      <Divider />
     </>
   );
 };

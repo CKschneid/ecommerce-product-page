@@ -85,8 +85,6 @@ const ButtonText = styled.p`
   font-size: 16px;
   line-height: 20px;
   color: ${({ theme }) => theme.colors.white};
-
-  background-color: ${({ theme }) => theme.colors.orange};
 `;
 
 const ModalHeader = styled.h5`
@@ -97,7 +95,7 @@ const ModalHeader = styled.h5`
   line-height: 20px;
 `;
 
-const Link = styled.li`
+const LinkText = styled.li`
   font-family: ${({ theme }) => theme.typography.fontFamily};
   font-style: normal;
   font-weight: 400;
@@ -105,6 +103,16 @@ const Link = styled.li`
   line-height: 26px;
   color: ${({ theme }) => theme.colors.darkGrayishBlue};
 `;
+
+const LiveCartText = styled.div`
+  font-family: "Kumbh Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ffffff;
+`;
+
 export {
   HeadingOne,
   HeadingTwo,
@@ -115,5 +123,6 @@ export {
   QuantityText,
   ButtonText,
   ModalHeader,
-  Link,
+  LinkText,
+  LiveCartText,
 };

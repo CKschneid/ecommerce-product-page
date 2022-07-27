@@ -1,12 +1,23 @@
 import styled from "styled-components";
 import { useState } from "react";
+import Lightbox from "./Lightbox";
+import ProductInfo from "./ProductInfo";
 
-const StyledProductPage = styled.div``;
-const Lightbox = styled.div``;
+const StyledProductPage = styled.div`
+  display: flex;
+  max-width: 1100px;
+  margin: 90px auto 90px;
+  justify-content: space-evenly;
+  align-items: center;
+`;
 
 const ProductPage = () => {
-  const [quantity, setQuantity] = useState(0);
-  return <>some text</>;
+  return (
+    <StyledProductPage>
+      <Lightbox />
+      <ProductInfo />
+    </StyledProductPage>
+  );
 };
 
 export default ProductPage;
