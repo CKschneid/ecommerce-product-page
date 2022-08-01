@@ -1,17 +1,27 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { LinkText, LiveCartText } from "./Typography";
+
 const StyledNav = styled.div`
   max-width: 1100px;
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1100px) {
+  }
 `;
 const Logo = styled.div`
   width: 137.5px;
   height: 20px;
   margin-right: 5vw;
-  // padding-left: 3vw;
+  @media (max-width: 1100px) {
+    margin-left: 3vw;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-left: 10vw;
+  }
 `;
 const Links = styled.ul`
   flex-grow: 1;
@@ -25,11 +35,20 @@ const Links = styled.ul`
 `;
 const Link = styled(LinkText)`
   cursor: pointer;
-  padding: 25px 0px;
+  padding: ${({ mobile }) => (mobile ? "12px 0px 12px 20px" : "25px 0px")};
   border-bottom: 4px solid hsla(26, 100%, 55%, 0);
   &:hover {
     border-bottom: 4px solid ${({ theme }) => theme.colors.orange};
   }
+
+  ${({ mobile, theme }) =>
+    mobile &&
+    css`
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 26px;
+      color: ${theme.colors.veryDarkBlue};
+    `}
 `;
 const CartandUser = styled.div`
   display: flex;
@@ -70,10 +89,10 @@ const Avatar = styled.img`
 const Toggle = styled.img`
   display: none;
   position: absolute;
-  z-index: 1;
-  top: 5px;
-  left: 0px;
-
+  z-index: 3;
+  top: 19px;
+  left: 16px;
+  cursor: pointer;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: block;
   }
@@ -92,7 +111,7 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   background-color: hsla(0, 100%, 0%, 0.5);
-
+  z-index: 1;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: ${({ isVisible }) => (isVisible ? "block" : "none")};
   }
@@ -101,6 +120,7 @@ const MobileNav = styled.ul`
   background-color: white;
   width: 250px;
   height: 100%;
+  padding-top: 90px;
 `;
 
 export {

@@ -75,7 +75,9 @@ const Nav = ({ cart, dispatch, cartIsVisible, setCartVisibility }) => {
       <Overlay isVisible={navIsVisible}>
         <MobileNav>
           {linkList.map((link) => (
-            <Link key={link}>{link}</Link>
+            <Link mobile key={link}>
+              {link}
+            </Link>
           ))}
         </MobileNav>
       </Overlay>

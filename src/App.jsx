@@ -4,6 +4,7 @@ import { useReducer } from "react";
 import Nav from "./components/Nav";
 import ProductPage from "./components/ProductPage";
 import CartModal from "./components/CartModal";
+import ModalLightbox from "./components/ModalLightbox";
 
 const sampleCart = [
   {
@@ -35,6 +36,8 @@ const reducer = (state, action) => {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [cartIsVisible, setCartVisibility] = useState(false);
+  const [modalLightboxIsVisible, setModalLightboxVisibility] = useState(false);
+
   return (
     <>
       <Nav
@@ -43,11 +46,19 @@ function App() {
         cartIsVisible={cartIsVisible}
         setCartVisibility={setCartVisibility}
       />
-      <ProductPage dispatch={dispatch} />
+      <ProductPage
+        dispatch={dispatch}
+        modalLightboxIsVisible={modalLightboxIsVisible}
+        setModalLightboxVisibility={setModalLightboxVisibility}
+      />
       <CartModal
         visible={cartIsVisible}
         cart={state.cart}
         dispatch={dispatch}
+      />
+      <ModalLightbox
+        modalLightboxIsVisible={modalLightboxIsVisible}
+        setModalLightboxVisibility={setModalLightboxVisibility}
       />
     </>
   );

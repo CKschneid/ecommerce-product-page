@@ -11,10 +11,10 @@ const StyledProductPage = styled.div`
   align-items: center;
 `;
 
-const ProductPage = () => {
+const ProductPage = ({ setModalLightboxVisibility }) => {
   return (
     <StyledProductPage>
-      <Lightbox />
+      <Lightbox setModalLightboxVisibility={setModalLightboxVisibility} />
       <ProductInfo />
     </StyledProductPage>
   );
