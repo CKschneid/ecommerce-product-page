@@ -1,8 +1,19 @@
 import styled from "styled-components";
 import { useState } from "react";
 import productImagesArray from "../utilities/productImageImports";
-import { StyledLightbox, FeaturedPhoto, ThumbnailRow } from "./LightboxStyles";
+import {
+  StyledLightbox,
+  FeaturedPhotoContainer,
+  FeaturedPhoto,
+  Previous,
+  PreviousIcon,
+  Next,
+  NextIcon,
+  ThumbnailRow,
+} from "./LightboxStyles";
 import Thumbnail from "./Thumbnail";
+import previousSvg from "../assets/icon-previous.svg";
+import nextSvg from "../assets/icon-next.svg";
 
 const Lightbox = ({ setModalLightboxVisibility }) => {
   const [featured, setFeatured] = useState({
@@ -25,10 +36,39 @@ const Lightbox = ({ setModalLightboxVisibility }) => {
       src: newFeaturedImageSrc,
     });
   };
-
+  const handleNext = (e) => {
+    const newKey = featured.key + 1;
+    if (newKey <= productImagesArray.length) {
+      const newSrc = productImagesArray[newKey - 1].full;
+      setFeatured({
+        key: newKey,
+        src: newSrc,
+      });
+    }
+    e.stopPropagation();
+  };
+  const handlePrevious = (e) => {
+    const newKey = featured.key - 1;
+    if (newKey >= 1) {
+      const newSrc = productImagesArray[newKey - 1].full;
+      setFeatured({
+        key: newKey,
+        src: newSrc,
+      });
+    }
+    e.stopPropagation();
+  };
   return (
     <StyledLightbox>
-      <FeaturedPhoto src={featured.src} onClick={handleFeaturedClick} />
+      <FeaturedPhotoContainer onClick={handleFeaturedClick}>
+        <FeaturedPhoto src={featured.src} />
+        <Previous>
+          <PreviousIcon src={previousSvg} onClick={handlePrevious} />
+        </Previous>
+        <Next>
+          <NextIcon src={nextSvg} onClick={handleNext} />
+        </Next>
+      </FeaturedPhotoContainer>
       <ThumbnailRow>
         {productImagesArray.map((image) => (
           <Thumbnail

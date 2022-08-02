@@ -5,6 +5,7 @@ import {
   BrandName,
   ProductName,
   ProductDescription,
+  Pricing,
   PriceAndPercentOff,
   Price,
   PercentOff,
@@ -38,13 +39,16 @@ const ProductInfo = () => {
         Featuring a durable rubber outer sole, they’ll withstand everything the
         weather can offer.
       </ProductDescription>
-      <PriceAndPercentOff>
-        <Price>$125.00</Price>
-        <PercentOff>
-          <PercentOffText>50%</PercentOffText>
-        </PercentOff>
-      </PriceAndPercentOff>
-      <OriginalPrice>$250.00</OriginalPrice>
+      <Pricing>
+        <PriceAndPercentOff>
+          <Price>$125.00</Price>
+          <PercentOff>
+            <PercentOffText>50%</PercentOffText>
+          </PercentOff>
+        </PriceAndPercentOff>
+        <OriginalPrice>$250.00</OriginalPrice>
+      </Pricing>
+
       <QuantityAndAdd>
         <Quantity>
           <Minus src={minusSvg} onClick={() => handleClick(-1)} />

@@ -9,6 +9,9 @@ import {
 
 const StyledProductInfo = styled.div`
   max-width: 445px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 const BrandName = styled(HeadingTwo)`
   margin-bottom: 27px;
@@ -19,6 +22,16 @@ const ProductName = styled(HeadingOne)`
 const ProductDescription = styled(BodyText)`
   margin-bottom: 24px;
 `;
+const Pricing = styled.div`
+  display: block;
+  margin-bottom: 32px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
 const PriceAndPercentOff = styled.div`
   display: flex;
   gap: 16px;
@@ -31,11 +44,13 @@ const PercentOff = styled.div`
   padding: 7px 8px;
   background-color: ${({ theme }) => theme.colors.paleOrange};
 `;
-const OriginalPrice = styled(OriginalPriceText)`
-  margin-bottom: 32px;
-`;
+const OriginalPrice = styled(OriginalPriceText)``;
 const QuantityAndAdd = styled.div`
   display: flex;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 16px;
+  }
 `;
 const Quantity = styled.div`
   width: 157px;
@@ -47,6 +62,10 @@ const Quantity = styled.div`
   border-radius: 10px;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.lightGrayishBlue};
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-right: 0px;
+    width: 100%;
+  }
 `;
 const Minus = styled.img`
   cursor: pointer;
@@ -67,6 +86,10 @@ const Add = styled.button`
   gap: 16px;
   align-items: center;
   cursor: pointer;
+  box-shadow: 0px 20px 50px -20px #ff7e1b;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 const CartIcon = styled.img`
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7443%)
@@ -78,6 +101,7 @@ export {
   BrandName,
   ProductName,
   ProductDescription,
+  Pricing,
   PriceAndPercentOff,
   Price,
   PercentOff,

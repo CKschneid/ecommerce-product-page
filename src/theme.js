@@ -13,7 +13,7 @@ const theme = {
     fontFamily: `'Kumbh Sans', sans-serif`,
   },
   breakpoints: {
-    mobile: "700px",
+    mobile: "950px",
     desktop: "1440px",
   },
 };

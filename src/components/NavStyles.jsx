@@ -101,6 +101,9 @@ const Divider = styled.hr`
   border-top: 1px solid hsla(219, 35%, 92%, 1);
   max-width: 1100px;
   margin: 0px auto;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 const Overlay = styled.div`

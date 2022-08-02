@@ -9,6 +9,11 @@ const StyledProductPage = styled.div`
   margin: 90px auto 90px;
   justify-content: space-evenly;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    margin: 0px auto 90px;
+  }
 `;
 
 const ProductPage = ({ setModalLightboxVisibility }) => {

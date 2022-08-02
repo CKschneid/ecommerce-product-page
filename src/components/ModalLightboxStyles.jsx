@@ -11,6 +11,9 @@ const StyledModalLightbox = styled.div`
   min-width: 100vw;
   min-height: 100vh;
   background-color: hsla(0, 0%, 0%, 0.75);
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 const ContentContainer = styled.div`
   width: 550px;

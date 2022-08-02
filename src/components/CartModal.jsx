@@ -1,5 +1,7 @@
 import {
   StyledCart,
+  Container,
+  Card,
   Header,
   Divider,
   CartItems,
@@ -13,16 +15,20 @@ const CartModal = ({ cart, dispatch, visible }) => {
 
   return (
     <StyledCart visible={visible}>
-      <Header>Cart</Header>
-      <Divider />
-      <CartItems>
-        {cart.map((cartItem) => (
-          <CartItem itemInfo={cartItem} dispatch={dispatch} />
-        ))}
-      </CartItems>
-      <CheckoutButton>
-        <ButtonText>Checkout</ButtonText>
-      </CheckoutButton>
+      <Container>
+        <Card>
+          <Header>Cart</Header>
+          <Divider />
+          <CartItems>
+            {cart.map((cartItem) => (
+              <CartItem itemInfo={cartItem} dispatch={dispatch} />
+            ))}
+          </CartItems>
+          <CheckoutButton>
+            <ButtonText>Checkout</ButtonText>
+          </CheckoutButton>
+        </Card>
+      </Container>
     </StyledCart>
   );
 };
