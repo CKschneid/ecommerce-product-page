@@ -20,8 +20,9 @@ import {
 import minusSvg from "../assets/icon-minus.svg";
 import plusSvg from "../assets/icon-plus.svg";
 import cartSvg from "../assets/icon-cart.svg";
+import { ACTIONS } from "../utilities/cartReducer";
 
-const ProductInfo = () => {
+const ProductInfo = ({ dispatch }) => {
   const [quantity, setQuantity] = useState(0);
   const handleClick = (change) => {
     if (quantity == 0 && change == -1) {
@@ -29,6 +30,17 @@ const ProductInfo = () => {
     }
     const newQuantity = quantity + change;
     setQuantity(newQuantity);
+  };
+  const addToCart = () => {
+    dispatch({
+      type: ACTIONS.ADD_ITEM,
+      payload: {
+        id: 123,
+        name: "Fall Limited Edition Sneakers",
+        unitPrice: 125,
+        quantity,
+      },
+    });
   };
   return (
     <StyledProductInfo>
@@ -55,7 +67,7 @@ const ProductInfo = () => {
           <QuantityText>{quantity}</QuantityText>
           <Plus src={plusSvg} onClick={() => handleClick(1)} />
         </Quantity>
-        <Add>
+        <Add onClick={addToCart}>
           <CartIcon src={cartSvg} />
           <ButtonText>Add to Cart</ButtonText>
         </Add>

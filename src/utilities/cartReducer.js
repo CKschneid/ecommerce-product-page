@@ -15,12 +15,9 @@ export const initialState = sampleCart;
 export const cartReducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.ADD_ITEM:
-      return { ...state, cart: [...state.cart, action.payload] };
+      return [...state, action.payload];
     case ACTIONS.DELETE_ITEM:
-      return {
-        ...state,
-        cart: state.cart.filter((item) => item !== action.payload.id),
-      };
+      return state.filter((item) => item.id !== action.payload);
     default:
       return state;
   }

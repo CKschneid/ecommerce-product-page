@@ -4,6 +4,7 @@ import {
   Card,
   Header,
   Divider,
+  EmptyCart,
   CartItems,
   CheckoutButton,
   ButtonText,
@@ -11,22 +12,26 @@ import {
 import CartItem from "./CartItem";
 
 const CartModal = ({ cart, dispatch, visible }) => {
-  const deleteItem = () => {};
-
   return (
     <StyledCart visible={visible}>
       <Container>
         <Card>
           <Header>Cart</Header>
           <Divider />
-          <CartItems>
-            {cart.map((cartItem) => (
-              <CartItem itemInfo={cartItem} dispatch={dispatch} />
-            ))}
-          </CartItems>
-          <CheckoutButton>
-            <ButtonText>Checkout</ButtonText>
-          </CheckoutButton>
+          {cart.length == 0 ? (
+            <EmptyCart>Your cart is empty.</EmptyCart>
+          ) : (
+            <>
+              <CartItems>
+                {cart.map((cartItem) => (
+                  <CartItem itemInfo={cartItem} dispatch={dispatch} />
+                ))}
+              </CartItems>
+              <CheckoutButton>
+                <ButtonText>Checkout</ButtonText>
+              </CheckoutButton>
+            </>
+          )}
         </Card>
       </Container>
     </StyledCart>

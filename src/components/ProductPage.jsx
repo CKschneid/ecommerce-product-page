@@ -16,11 +16,11 @@ const StyledProductPage = styled.div`
   }
 `;
 
-const ProductPage = ({ setModalLightboxVisibility }) => {
+const ProductPage = ({ setModalLightboxVisibility, dispatch }) => {
   return (
     <StyledProductPage>
       <Lightbox setModalLightboxVisibility={setModalLightboxVisibility} />
-      <ProductInfo />
+      <ProductInfo dispatch={dispatch} />
     </StyledProductPage>
   );
 };

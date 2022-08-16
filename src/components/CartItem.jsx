@@ -7,7 +7,7 @@ import {
 } from "./CartItemStyles";
 import thumbnailImg from "../assets/image-product-1-thumbnail.jpg";
 import deleteSvg from "../assets/icon-delete.svg";
-import { ACTIONS } from "../App";
+import { ACTIONS } from "../utilities/cartReducer";
 
 const CartItem = ({ itemInfo, dispatch }) => {
   const calculateTotalPrice = (unitPrice, quantity) => {

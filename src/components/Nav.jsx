@@ -21,28 +21,15 @@ import {
   Overlay,
   MobileNav,
 } from "./NavStyles";
-
 import { useState } from "react";
 
 const linkList = ["Collections", "Men", "Women", "About", "Contact"];
-// const displayTotalItems = (cart) => {
-//   const totalItems = cart.reduce((prevValue, currentValue) => {
-//     prevValue.quantity + currentValue.quantity;
-//   }, 0);
 
-//   if (totalItems > 0) {
-//     return totalItems;
-//   } else {
-//     return null;
-//   }
-// };
 const Nav = ({ cart, dispatch, cartIsVisible, setCartVisibility }) => {
   const [navIsVisible, setNavVisibility] = useState(false);
-  const [totalItems, setTotalItems] = useState(
-    cart.reduce((prevValue, currentValue) => {
-      return (prevValue.quantity || 0) + currentValue.quantity;
-    }, 0)
-  );
+  const totalQuantity = cart.reduce((prevValue, currentValue) => {
+    return (prevValue.quantity || 0) + currentValue.quantity;
+  }, 0);
 
   const handleClick = () => {
     setNavVisibility(!navIsVisible);
@@ -65,8 +52,8 @@ const Nav = ({ cart, dispatch, cartIsVisible, setCartVisibility }) => {
         <CartandUser>
           <Cart onClick={() => setCartVisibility(!cartIsVisible)}>
             <CartIcon src={cartSvg} />
-            <LiveCart totalItems={totalItems}>
-              <LiveCartText>{totalItems}</LiveCartText>
+            <LiveCart totalQuantity={totalQuantity}>
+              <LiveCartText>{totalQuantity}</LiveCartText>
             </LiveCart>
           </Cart>
           <Avatar src={avatarImg} />

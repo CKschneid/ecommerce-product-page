@@ -69,7 +69,7 @@ const LiveCart = styled.div`
   border-radius: 6.5px;
   padding: 3px 6px;
   background-color: ${({ theme }) => theme.colors.orange};
-  display: ${({ totalItems }) => (totalItems > 0 ? "block" : "none")};
+  display: ${({ totalQuantity }) => (totalQuantity > 0 ? "block" : "none")};
 `;
 const CartIcon = styled.img`
   width: 21.82px;

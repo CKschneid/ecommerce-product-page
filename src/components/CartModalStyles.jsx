@@ -39,7 +39,14 @@ const Divider = styled.hr`
 const CartItems = styled.div`
   padding: 24px;
 `;
-
+const EmptyCart = styled(BodyText)`
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: #69707d;
+  padding: 36px 0px;
+`;
 const CheckoutButton = styled.button`
   width: 90%;
 
@@ -60,6 +67,7 @@ export {
   Card,
   Header,
   Divider,
+  EmptyCart,
   CartItems,
   CheckoutButton,
   ButtonText,
