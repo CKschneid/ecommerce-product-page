@@ -10,11 +10,8 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+  - [Reflections](#reflections)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -37,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- [CodeSandbox.io Link](https://your-live-site-url.com)
+- [CodeSandbox.io Link](https://codesandbox.io/s/ecommerce-product-page-jvevtg?file=/package.json)
 
 ## My process
 
