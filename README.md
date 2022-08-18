@@ -30,7 +30,9 @@ Users should be able to:
 
 ![Desktop Preview](public/desktop-preview.jpg)
 ![Lightbox](public/active-states-lightbox.jpg)
-![Mobile](public/mobile-design-basket-filled.jpg)
+<p align=center>
+<img src="public/mobile-design-basket-filled.jpg"/>
+</p>
 
 ### Links
 
